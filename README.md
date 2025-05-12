@@ -1,44 +1,40 @@
-# Reto_3_POO_UNAL
-
-``` mermaid
 ---
 config:
   theme: neo-dark
 ---
 classDiagram
-direction TB
+    direction TB
     class MenuItem {
-	    +String Name
-	    +Float Price
-	    +init(self, Name, Price)
+        +String Name
+        +Float Price
+        +init(self, Name, Price)
     }
     class MainCourse {
-	    +String flour
-	    +String Protein
-	    +String Salad
-	    +init(self, flour, Protein, Salad)
+        +String flour
+        +String Protein
+        +String Salad
+        +init(self, flour, Protein, Salad)
     }
     class Drink {
-	    +String Type
-	    +String Size
-	    +Bool hasSugar
-	    +init(self, Type, Size, hasSugar)
+        +String Type
+        +String Size
+        +Bool hasSugar
+        +init(self, Type, Size, hasSugar)
     }
     class Dessert {
-	    +String Type
-	    +init(self, Type)
+        +String Type
+        +init(self, Type)
     }
     class Order {
-	    +MenuItem[] Items
-	    +init(self, Name, Price)
-	    +getTotalPrice(self)
-	    +addItem(self, item:"MenuItem")
-	    +calculateDiscounts(self)
-    }
-    class UntitledClass {
+        +MenuItem[] Items
+        +init(self, Name, Price)
+        +getTotalPrice(self)
+        +addItem(self, item: MenuItem)
+        +calculateDiscounts(self)
     }
 
-    MenuItem --> MainCourse
-    MenuItem --> Drink
-    MenuItem --> Dessert
-    MenuItem -- UntitledClass
+    
+    MenuItem <-- MainCourse
+    MenuItem <-- Drink
+    MenuItem <-- Dessert
+    Order .. MenuItem
