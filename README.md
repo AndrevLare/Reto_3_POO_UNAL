@@ -1,3 +1,4 @@
+``` mermaid
 ---
 config:
   theme: neo-dark
@@ -34,7 +35,7 @@ classDiagram
     }
 
     
-    MenuItem <-- MainCourse
-    MenuItem <-- Drink
-    MenuItem <-- Dessert
-    Order .. MenuItem
+    MenuItem <|-- MainCourse
+    MenuItem <|-- Drink
+    MenuItem <|-- Dessert
+    Order *-- MenuItem
